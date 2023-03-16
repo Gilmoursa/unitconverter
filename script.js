@@ -29,7 +29,7 @@ function convertTemperature() {
     const tempFrom = document.getElementById("tempFrom").value;
     const tempTo = document.getElementById("tempTo").value;
 
-    let result;
+    let tempResult;
 
     if (tempFrom === "c" && tempTo === "f") {
         tempResult = (temperature * 9 / 5) + 32;
@@ -48,4 +48,29 @@ function convertTemperature() {
     }
 
     document.getElementById("tempResult").value = tempResult.toFixed(2);
+}
+function convertDistance() {
+    const distance = document.getElementById("distance").value;
+    const distanceFrom = document.getElementById("distanceFrom").value;
+    const distanceTo = document.getElementById("distanceTo").value;
+
+    let distanceResult;
+
+    if (distanceFrom === "m" && distanceTo === "km") {
+        distanceResult = distance / 1000;
+    } else if (distanceFrom === "m" && distanceTo === "mi") {
+        distanceResult = distance / 1609.34;
+    } else if (distanceFrom === "km" && distanceTo === "m") {
+        distanceResult = distance * 1000;
+    } else if (distanceFrom === "km" && distanceTo === "mi") {
+        distanceResult = distance / 1.60934;
+    } else if (distanceFrom === "mi" && distanceTo === "m") {
+        distanceResult = distance * 1609.34;
+    } else if (distanceFrom === "mi" && distanceTo === "km") {
+        distanceResult = distance * 1.60934;
+    } else {
+        distanceResult = distance;
+    }
+
+    document.getElementById("distanceResult").value = distanceResult.toFixed(2);
 }
