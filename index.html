@@ -15,18 +15,38 @@
         <div class="form">
             <label for="weight">Enter weight:</label>
             <input type="number" id="weight" placeholder="Enter weight" oninput="convertWeight()">
-            <select id="from" onchange="convertWeight()">
+            <select id="weightFrom" onchange="convertWeight()">
                 <option value="kg">Kilograms (kg)</option>
                 <option value="lbs">Pounds (lbs)</option>
                 <option value="oz">Ounces (oz)</option>
             </select>
             <span>to</span>
-            <input type="text" id="result" disabled>
-            <select id="to" onchange="convertWeight()">
+            <input type="text" id="weightResult" disabled>
+            <select id="weightTo" onchange="convertWeight()">
                 <option value="kg">Kilograms (kg)</option>
                 <option value="lbs">Pounds (lbs)</option>
                 <option value="oz">Ounces (oz)</option>
             </select>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Temperature Conversion</h1>
+        <div class="form">
+            <label for="temperature">Enter temperature:</label>
+            <input type="number" id="temperature" placeholder="Enter temperature" oninput="convertTemperature()">
+            <select id="tempFrom" onchange="convertTemperature()">
+                <option value="c">Celsius (°C)</option>
+                <option value="f">Fahrenheit (°F)</option>
+                <option value="k">Kelvin (K)</option>
+            </select>
+            <span>to</span>
+            <input type="text" id="tempResult" disabled>
+            <select id="tempTo" onchange="convertTemperature()">
+                <option value="c">Celsius (°C)</option>
+                <option value="f">Fahrenheit (°F)</option>
+                <option value="k">Kelvin (K)</option>
+            </select>
+            
         </div>
     </div>
 

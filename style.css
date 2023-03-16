@@ -2,12 +2,15 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
-}
+    opacity: 1;
+    background: radial-gradient(circle, transparent 20%, #F2F2F2 20%, #F2F2F2 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #F2F2F2 20%, #F2F2F2 80%, transparent 80%, transparent) 22.5px 22.5px, linear-gradient(#764248 1.8px, transparent 1.8px) 0 -0.9px, linear-gradient(90deg, #764248 1.8px, #F2F2F2 1.8px) -0.9px 0;
+    background-size: 45px 45px, 45px 45px, 22.5px 22.5px, 22.5px 22.5px;}
 
 .container {
     width: 50%;
     max-width: 1200px;
     margin: 0 auto;
+    margin-bottom: 50px;
     background-color: #FFCF00;
     padding: 20px;
     border-radius: 10px;
@@ -23,6 +26,7 @@ h1 {
     font-weight: bold;
     font-size: 50px;
 }
+
 /* form styling */
 .form {
     display: flex;
