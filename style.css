@@ -39,6 +39,12 @@ h1 {
     font-size: 50px;
     margin: 0 auto;
 }
+h1.title {
+    color: #FFCF00;
+    font-size: 80px;
+    text-shadow: 3px 3px rgba(238, 97, 35, 1);
+    padding-bottom: 20px;
+}
 
 /* form styling */
 .form {
