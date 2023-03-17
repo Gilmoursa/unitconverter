@@ -22,7 +22,9 @@ body {
     justify-content: space-between;
     width: 60%;
 }
-.firstUnit, .secondUnit {
+
+.firstUnit,
+.secondUnit {
     width: 100%;
     display: flex;
     flex-direction: column;
