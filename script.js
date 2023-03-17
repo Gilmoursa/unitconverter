@@ -49,6 +49,7 @@ function convertTemperature() {
 
     document.getElementById("tempResult").value = tempResult.toFixed(2);
 }
+
 function convertDistance() {
     const distance = document.getElementById("distance").value;
     const distanceFrom = document.getElementById("distanceFrom").value;
