@@ -1,4 +1,7 @@
 # unitconverter
 simple unit conversion app
 
-V1 - Simple Unit Conversion App for Weight units.
+## Features
+- convert weight between kg, lbs, and oz
+- convert temperature between C, F, K
+- convert distance between km, m, mi
