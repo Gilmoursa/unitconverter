@@ -10,150 +10,162 @@
 </head>
 
 <body>
-    <h1 class="title">Unit Converter App</h1>
 
-    <div class="precision-bar">
-        <label for="precision">Decimal places:</label>
-        <select id="precision" onchange="reconvertAll()">
-            <option value="2" selected>2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-        </select>
-    </div>
-
-    <!-- Weight -->
-    <div class="container">
-        <h1>Weight Conversion</h1>
-        <div class="form">
-            <div class="firstUnit">
-                <label for="weight">Enter weight:</label>
-                <input type="number" id="weight" placeholder="Enter weight" oninput="convertWeight()">
-                <select id="weightFrom" onchange="convertWeight()">
-                    <option value="kg">Kilograms (kg)</option>
-                    <option value="lbs">Pounds (lbs)</option>
-                    <option value="oz">Ounces (oz)</option>
-                </select>
-            </div>
-            <div class="controls">
-                <button class="swap-btn" onclick="swap('weight', 'weightFrom', 'weightTo', convertWeight)" title="Swap units">⇄</button>
-                <span>to</span>
-            </div>
-            <div class="secondUnit">
-                <div class="result-row">
-                    <input type="text" id="weightResult" disabled>
-                    <button class="copy-btn" onclick="copyResult('weightResult')" title="Copy result">&#x2398;</button>
-                </div>
-                <select id="weightTo" onchange="convertWeight()">
-                    <option value="kg">Kilograms (kg)</option>
-                    <option value="lbs" selected>Pounds (lbs)</option>
-                    <option value="oz">Ounces (oz)</option>
+    <header>
+        <div class="header-inner">
+            <h1>Unit Converter</h1>
+            <div class="precision-bar">
+                <label for="precision">Decimal places</label>
+                <select id="precision" onchange="reconvertAll()">
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
                 </select>
             </div>
         </div>
-        <button class="clear-btn" onclick="clearConverter('weight', 'weightResult')">Clear</button>
-    </div>
+    </header>
 
-    <!-- Temperature -->
-    <div class="container">
-        <h1>Temperature Conversion</h1>
-        <div class="form">
-            <div class="firstUnit">
-                <label for="temperature">Enter temperature:</label>
-                <input type="number" id="temperature" placeholder="Enter temperature" oninput="convertTemperature()">
-                <select id="tempFrom" onchange="convertTemperature()">
-                    <option value="c">Celsius (°C)</option>
-                    <option value="f">Fahrenheit (°F)</option>
-                    <option value="k">Kelvin (K)</option>
-                </select>
-            </div>
-            <div class="controls">
-                <button class="swap-btn" onclick="swap('temperature', 'tempFrom', 'tempTo', convertTemperature)" title="Swap units">⇄</button>
-                <span>to</span>
-            </div>
-            <div class="secondUnit">
-                <div class="result-row">
-                    <input type="text" id="tempResult" disabled>
-                    <button class="copy-btn" onclick="copyResult('tempResult')" title="Copy result">&#x2398;</button>
-                </div>
-                <select id="tempTo" onchange="convertTemperature()">
-                    <option value="c">Celsius (°C)</option>
-                    <option value="f" selected>Fahrenheit (°F)</option>
-                    <option value="k">Kelvin (K)</option>
-                </select>
-            </div>
-        </div>
-        <button class="clear-btn" onclick="clearConverter('temperature', 'tempResult')">Clear</button>
-    </div>
+    <main>
 
-    <!-- Distance -->
-    <div class="container">
-        <h1>Distance Conversion</h1>
-        <div class="form">
-            <div class="firstUnit">
-                <label for="distance">Enter distance:</label>
-                <input type="number" id="distance" placeholder="Enter distance" oninput="convertDistance()">
-                <select id="distanceFrom" onchange="convertDistance()">
-                    <option value="m">Meters (m)</option>
-                    <option value="km">Kilometers (km)</option>
-                    <option value="mi">Miles (mi)</option>
-                </select>
+        <!-- Weight -->
+        <section class="card card--weight">
+            <div class="card-header">
+                <span class="card-icon" aria-hidden="true">⚖️</span>
+                <h2>Weight</h2>
             </div>
-            <div class="controls">
-                <button class="swap-btn" onclick="swap('distance', 'distanceFrom', 'distanceTo', convertDistance)" title="Swap units">⇄</button>
-                <span>to</span>
-            </div>
-            <div class="secondUnit">
-                <div class="result-row">
-                    <input type="text" id="distanceResult" disabled>
-                    <button class="copy-btn" onclick="copyResult('distanceResult')" title="Copy result">&#x2398;</button>
+            <div class="form">
+                <div class="unit-group">
+                    <label for="weightFrom">From</label>
+                    <select id="weightFrom" onchange="convertWeight()">
+                        <option value="kg">Kilograms (kg)</option>
+                        <option value="lbs">Pounds (lbs)</option>
+                        <option value="oz">Ounces (oz)</option>
+                    </select>
+                    <input type="number" id="weight" placeholder="0" oninput="convertWeight()" aria-label="Weight value">
                 </div>
-                <select id="distanceTo" onchange="convertDistance()">
-                    <option value="m">Meters (m)</option>
-                    <option value="km" selected>Kilometers (km)</option>
-                    <option value="mi">Miles (mi)</option>
-                </select>
+                <button class="swap-btn" onclick="swap('weight', 'weightFrom', 'weightTo', convertWeight)" aria-label="Swap units">⇄</button>
+                <div class="unit-group">
+                    <label for="weightTo">To</label>
+                    <select id="weightTo" onchange="convertWeight()">
+                        <option value="kg">Kilograms (kg)</option>
+                        <option value="lbs" selected>Pounds (lbs)</option>
+                        <option value="oz">Ounces (oz)</option>
+                    </select>
+                    <div class="result-row">
+                        <input type="text" id="weightResult" disabled aria-label="Weight result" aria-live="polite">
+                        <button class="copy-btn" onclick="copyResult('weightResult')" aria-label="Copy result">⎘</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <button class="clear-btn" onclick="clearConverter('distance', 'distanceResult')">Clear</button>
-    </div>
+            <button class="clear-btn" onclick="clearConverter('weight', 'weightResult')">Clear</button>
+        </section>
 
-    <!-- Speed -->
-    <div class="container">
-        <h1>Speed Conversion</h1>
-        <div class="form">
-            <div class="firstUnit">
-                <label for="speed">Enter speed:</label>
-                <input type="number" id="speed" placeholder="Enter speed" oninput="convertSpeed()">
-                <select id="speedFrom" onchange="convertSpeed()">
-                    <option value="mph">Miles/hour (mph)</option>
-                    <option value="kph">Kilometers/hour (km/h)</option>
-                    <option value="ms">Meters/second (m/s)</option>
-                    <option value="kn">Knots (kn)</option>
-                </select>
+        <!-- Temperature -->
+        <section class="card card--temperature">
+            <div class="card-header">
+                <span class="card-icon" aria-hidden="true">🌡️</span>
+                <h2>Temperature</h2>
             </div>
-            <div class="controls">
-                <button class="swap-btn" onclick="swap('speed', 'speedFrom', 'speedTo', convertSpeed)" title="Swap units">⇄</button>
-                <span>to</span>
-            </div>
-            <div class="secondUnit">
-                <div class="result-row">
-                    <input type="text" id="speedResult" disabled>
-                    <button class="copy-btn" onclick="copyResult('speedResult')" title="Copy result">&#x2398;</button>
+            <div class="form">
+                <div class="unit-group">
+                    <label for="tempFrom">From</label>
+                    <select id="tempFrom" onchange="convertTemperature()">
+                        <option value="c">Celsius (°C)</option>
+                        <option value="f">Fahrenheit (°F)</option>
+                        <option value="k">Kelvin (K)</option>
+                    </select>
+                    <input type="number" id="temperature" placeholder="0" oninput="convertTemperature()" aria-label="Temperature value">
                 </div>
-                <select id="speedTo" onchange="convertSpeed()">
-                    <option value="mph">Miles/hour (mph)</option>
-                    <option value="kph" selected>Kilometers/hour (km/h)</option>
-                    <option value="ms">Meters/second (m/s)</option>
-                    <option value="kn">Knots (kn)</option>
-                </select>
+                <button class="swap-btn" onclick="swap('temperature', 'tempFrom', 'tempTo', convertTemperature)" aria-label="Swap units">⇄</button>
+                <div class="unit-group">
+                    <label for="tempTo">To</label>
+                    <select id="tempTo" onchange="convertTemperature()">
+                        <option value="c">Celsius (°C)</option>
+                        <option value="f" selected>Fahrenheit (°F)</option>
+                        <option value="k">Kelvin (K)</option>
+                    </select>
+                    <div class="result-row">
+                        <input type="text" id="tempResult" disabled aria-label="Temperature result" aria-live="polite">
+                        <button class="copy-btn" onclick="copyResult('tempResult')" aria-label="Copy result">⎘</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <button class="clear-btn" onclick="clearConverter('speed', 'speedResult')">Clear</button>
-    </div>
+            <button class="clear-btn" onclick="clearConverter('temperature', 'tempResult')">Clear</button>
+        </section>
+
+        <!-- Distance -->
+        <section class="card card--distance">
+            <div class="card-header">
+                <span class="card-icon" aria-hidden="true">📏</span>
+                <h2>Distance</h2>
+            </div>
+            <div class="form">
+                <div class="unit-group">
+                    <label for="distanceFrom">From</label>
+                    <select id="distanceFrom" onchange="convertDistance()">
+                        <option value="m">Meters (m)</option>
+                        <option value="km">Kilometers (km)</option>
+                        <option value="mi">Miles (mi)</option>
+                    </select>
+                    <input type="number" id="distance" placeholder="0" oninput="convertDistance()" aria-label="Distance value">
+                </div>
+                <button class="swap-btn" onclick="swap('distance', 'distanceFrom', 'distanceTo', convertDistance)" aria-label="Swap units">⇄</button>
+                <div class="unit-group">
+                    <label for="distanceTo">To</label>
+                    <select id="distanceTo" onchange="convertDistance()">
+                        <option value="m">Meters (m)</option>
+                        <option value="km" selected>Kilometers (km)</option>
+                        <option value="mi">Miles (mi)</option>
+                    </select>
+                    <div class="result-row">
+                        <input type="text" id="distanceResult" disabled aria-label="Distance result" aria-live="polite">
+                        <button class="copy-btn" onclick="copyResult('distanceResult')" aria-label="Copy result">⎘</button>
+                    </div>
+                </div>
+            </div>
+            <button class="clear-btn" onclick="clearConverter('distance', 'distanceResult')">Clear</button>
+        </section>
+
+        <!-- Speed -->
+        <section class="card card--speed">
+            <div class="card-header">
+                <span class="card-icon" aria-hidden="true">💨</span>
+                <h2>Speed</h2>
+            </div>
+            <div class="form">
+                <div class="unit-group">
+                    <label for="speedFrom">From</label>
+                    <select id="speedFrom" onchange="convertSpeed()">
+                        <option value="mph">Miles/hour (mph)</option>
+                        <option value="kph">Kilometers/hour (km/h)</option>
+                        <option value="ms">Meters/second (m/s)</option>
+                        <option value="kn">Knots (kn)</option>
+                    </select>
+                    <input type="number" id="speed" placeholder="0" oninput="convertSpeed()" aria-label="Speed value">
+                </div>
+                <button class="swap-btn" onclick="swap('speed', 'speedFrom', 'speedTo', convertSpeed)" aria-label="Swap units">⇄</button>
+                <div class="unit-group">
+                    <label for="speedTo">To</label>
+                    <select id="speedTo" onchange="convertSpeed()">
+                        <option value="mph">Miles/hour (mph)</option>
+                        <option value="kph" selected>Kilometers/hour (km/h)</option>
+                        <option value="ms">Meters/second (m/s)</option>
+                        <option value="kn">Knots (kn)</option>
+                    </select>
+                    <div class="result-row">
+                        <input type="text" id="speedResult" disabled aria-label="Speed result" aria-live="polite">
+                        <button class="copy-btn" onclick="copyResult('speedResult')" aria-label="Copy result">⎘</button>
+                    </div>
+                </div>
+            </div>
+            <button class="clear-btn" onclick="clearConverter('speed', 'speedResult')">Clear</button>
+        </section>
+
+    </main>
 
     <script src="script.js"></script>
 </body>
