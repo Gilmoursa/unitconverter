@@ -11,6 +11,21 @@
 
 <body>
     <h1 class="title">Unit Converter App</h1>
+
+    <div class="precision-bar">
+        <label for="precision">Decimal places:</label>
+        <select id="precision" onchange="reconvertAll()">
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+    </div>
+
+    <!-- Weight -->
     <div class="container">
         <h1>Weight Conversion</h1>
         <div class="form">
@@ -23,17 +38,26 @@
                     <option value="oz">Ounces (oz)</option>
                 </select>
             </div>
-            <span>to</span>
+            <div class="controls">
+                <button class="swap-btn" onclick="swap('weight', 'weightFrom', 'weightTo', convertWeight)" title="Swap units">⇄</button>
+                <span>to</span>
+            </div>
             <div class="secondUnit">
-                <input type="text" id="weightResult" disabled>
+                <div class="result-row">
+                    <input type="text" id="weightResult" disabled>
+                    <button class="copy-btn" onclick="copyResult('weightResult')" title="Copy result">&#x2398;</button>
+                </div>
                 <select id="weightTo" onchange="convertWeight()">
                     <option value="kg">Kilograms (kg)</option>
-                    <option value="lbs">Pounds (lbs)</option>
+                    <option value="lbs" selected>Pounds (lbs)</option>
                     <option value="oz">Ounces (oz)</option>
                 </select>
             </div>
         </div>
+        <button class="clear-btn" onclick="clearConverter('weight', 'weightResult')">Clear</button>
     </div>
+
+    <!-- Temperature -->
     <div class="container">
         <h1>Temperature Conversion</h1>
         <div class="form">
@@ -46,17 +70,26 @@
                     <option value="k">Kelvin (K)</option>
                 </select>
             </div>
-            <span>to</span>
+            <div class="controls">
+                <button class="swap-btn" onclick="swap('temperature', 'tempFrom', 'tempTo', convertTemperature)" title="Swap units">⇄</button>
+                <span>to</span>
+            </div>
             <div class="secondUnit">
-                <input type="text" id="tempResult" disabled>
+                <div class="result-row">
+                    <input type="text" id="tempResult" disabled>
+                    <button class="copy-btn" onclick="copyResult('tempResult')" title="Copy result">&#x2398;</button>
+                </div>
                 <select id="tempTo" onchange="convertTemperature()">
                     <option value="c">Celsius (°C)</option>
-                    <option value="f">Fahrenheit (°F)</option>
+                    <option value="f" selected>Fahrenheit (°F)</option>
                     <option value="k">Kelvin (K)</option>
                 </select>
             </div>
         </div>
+        <button class="clear-btn" onclick="clearConverter('temperature', 'tempResult')">Clear</button>
     </div>
+
+    <!-- Distance -->
     <div class="container">
         <h1>Distance Conversion</h1>
         <div class="form">
@@ -69,17 +102,59 @@
                     <option value="mi">Miles (mi)</option>
                 </select>
             </div>
-            <span>to</span>
+            <div class="controls">
+                <button class="swap-btn" onclick="swap('distance', 'distanceFrom', 'distanceTo', convertDistance)" title="Swap units">⇄</button>
+                <span>to</span>
+            </div>
             <div class="secondUnit">
+                <div class="result-row">
+                    <input type="text" id="distanceResult" disabled>
+                    <button class="copy-btn" onclick="copyResult('distanceResult')" title="Copy result">&#x2398;</button>
+                </div>
                 <select id="distanceTo" onchange="convertDistance()">
                     <option value="m">Meters (m)</option>
-                    <option value="km">Kilometers (km)</option>
+                    <option value="km" selected>Kilometers (km)</option>
                     <option value="mi">Miles (mi)</option>
                 </select>
-                <input type="text" id="distanceResult" disabled>
             </div>
         </div>
+        <button class="clear-btn" onclick="clearConverter('distance', 'distanceResult')">Clear</button>
     </div>
+
+    <!-- Speed -->
+    <div class="container">
+        <h1>Speed Conversion</h1>
+        <div class="form">
+            <div class="firstUnit">
+                <label for="speed">Enter speed:</label>
+                <input type="number" id="speed" placeholder="Enter speed" oninput="convertSpeed()">
+                <select id="speedFrom" onchange="convertSpeed()">
+                    <option value="mph">Miles/hour (mph)</option>
+                    <option value="kph">Kilometers/hour (km/h)</option>
+                    <option value="ms">Meters/second (m/s)</option>
+                    <option value="kn">Knots (kn)</option>
+                </select>
+            </div>
+            <div class="controls">
+                <button class="swap-btn" onclick="swap('speed', 'speedFrom', 'speedTo', convertSpeed)" title="Swap units">⇄</button>
+                <span>to</span>
+            </div>
+            <div class="secondUnit">
+                <div class="result-row">
+                    <input type="text" id="speedResult" disabled>
+                    <button class="copy-btn" onclick="copyResult('speedResult')" title="Copy result">&#x2398;</button>
+                </div>
+                <select id="speedTo" onchange="convertSpeed()">
+                    <option value="mph">Miles/hour (mph)</option>
+                    <option value="kph" selected>Kilometers/hour (km/h)</option>
+                    <option value="ms">Meters/second (m/s)</option>
+                    <option value="kn">Knots (kn)</option>
+                </select>
+            </div>
+        </div>
+        <button class="clear-btn" onclick="clearConverter('speed', 'speedResult')">Clear</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 
